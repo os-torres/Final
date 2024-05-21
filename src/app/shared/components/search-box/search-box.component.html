@@ -1,0 +1,13 @@
+
+<div class="d-flex align-items-center">
+  <h3 for="city" class="roboto-medium m-2">Buscar Destino</h3>
+  <p-autoComplete id="city"
+    [placeholder]='placeholder'
+    [(ngModel)]="selectedTerm"
+    [dropdown]="true"
+    [suggestions]="filteredTerms"
+    (completeMethod)="filterTerm($event)"
+    (onSelect)="emmitValue()"
+    (keyup.enter)="emmitValue()"
+    />
+</div>

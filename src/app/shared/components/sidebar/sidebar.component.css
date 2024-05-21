@@ -1,0 +1,66 @@
+/* navbar.component.css */
+.logo img {
+  height: 50px; /* Ajustar según el diseño */
+}
+
+.flex-spacer {
+  flex: 1 1 auto;
+}
+
+.links a {
+  margin-right: 15px;
+}
+
+.div-publ{
+  position: relative;
+  display: flex; /* Usa flexbox para alinear el contenido */
+  align-items: end; /* Centra verticalmente */
+  justify-content: space-between;
+  background: url('../../../../assets/header.png')  no-repeat center center;;
+  height: 230px; /* Ajusta la altura según necesites */
+  width: 68%; /* Ajusta el ancho según necesites */
+  margin: 0 auto;
+  background-size: cover; /* Ajusta la imagen para que cubra todo el div */
+  background-position: center;
+  padding-left: 10px;
+  padding-bottom: 20px;
+}
+
+.div-publ::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3); /* Ajusta la opacidad aquí */
+  z-index: 0;
+}
+
+.text-container {
+  position: relative;
+  z-index: 1;
+  text-align: left;
+}
+
+.text-container h2 {
+  font-size: 3.5em; /* Ajusta el tamaño del texto */
+  margin-bottom: 10px; /* Elimina el margen inferior para que el span esté más cerca */
+}
+
+.text-container span {
+  font-size: 1.5em; /* Ajusta el tamaño del texto */
+}
+
+.prueba{
+  display: flex;
+  width: 350px;
+  justify-content: space-around;
+}
+
+.active {
+  box-shadow: 0px 10px 5px 0px rgba(12, 2, 2, 0.75) !important;
+/* Un verde Google, usa !important para asegurar que sobrescriba otros estilos de Angular Material */
+  color: white;
+}
+

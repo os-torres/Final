@@ -1,0 +1,24 @@
+
+<p-scrollPanel [style]="{ width: '100%', height: '720px' }">
+  <div class="container mt-3">
+    <div class="row justify-content-center">
+      <div class="col-lg-4 col-sm-12 col-md-6 mb-4" *ngFor="let destin of destino?._bindings">
+        <div class="card card-custom shadow-sm">
+          <img [src]="destin.imagenDestino" *ngIf="destin.imagenDestino;else imagenRepuesto" alt="Nature" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">{{destin.nameDestino}}</h5>
+            <p class="card-text"><i class="fa-solid fa-location-dot"></i>{{destin.nameCity}}</p>
+            <button mat-raised-button color="primary" [routerLink]="['by/',destin.idDestino]">
+              <i class="fa-solid fa-right-from-bracket"></i>
+              Ver más
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</p-scrollPanel>
+
+<ng-template #imagenRepuesto>
+  <img src="https://media.ambito.com/p/74c8fa3193c6bc9325962c590ef4827e/adjuntos/239/imagenes/040/478/0040478769/notre-damejpg.jpg" alt="Nature" class="card-img-top">
+</ng-template>

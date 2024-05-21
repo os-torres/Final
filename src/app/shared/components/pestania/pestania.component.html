@@ -1,0 +1,15 @@
+<mat-tab-group (selectedTabChange)="consultar($event)">
+  <mat-tab *ngFor="let pest of pestanias">
+    <ng-template mat-tab-label>
+      <i [class]="pest.icono"></i>
+      {{pest.nombre}}
+    </ng-template>
+    <shared-destino-card *ngIf="bandera404 else mostrar404" [destino]="pest.destinos"></shared-destino-card>
+  </mat-tab>
+</mat-tab-group>
+<ng-template #mostrar404>
+  <div class="parent404">
+  </div>
+  <p class="text-center h1">404 NOT FOUND</p>
+  <p class="text-center">El inge no pagó el hosting :(</p>
+</ng-template>

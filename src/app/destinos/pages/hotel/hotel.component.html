@@ -1,0 +1,51 @@
+<div [ngClass]="{'border border-danger':!hot || hot.length===0}">
+<mat-accordion>
+  <mat-expansion-panel (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title class="text-center">
+        <i class="fa-solid fa-hotel"></i>
+        Hostelería
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class="card xl:flex mt-2 xl:justify-content-center" *ngIf="hot && hot.length>0 else template">
+      <p-orderList
+        [value]="hot"
+        [listStyle]="{ 'max-height': '10rem' }"
+        header="Hosteleria cerca"
+        filterBy="hotelName"
+        filterPlaceholder="Filtrar por nombre">
+        <ng-template let-hotel pTemplate="item">
+          <div class="d-flex justify-content-arround p-2 align-items-center gap-3 w-100">
+            <div>
+            <img width="100px"
+              [src]="hotel.hotelImagen"
+              alt="https://media.istockphoto.com/id/119926339/es/foto/piscina-del-complejo-tur%C3%ADstico.jpg?s=612x612&w=0&k=20&c=xL-i7eF0tFmfvjZbWkOSvJTH5pzMVKWPt1iCTfZGwnw="
+              class="w-4rem flex-shrink-0 shadow bg-white rounded" />
+            </div>
+            <div class="flex-1 flex flex-column gap-2">
+              <b><span class="font-bold">{{ hotel.hotelName }}</span></b>
+              <div class="flex align-items-center gap-2">
+                <i class="pi pi-tag text-sm"></i>
+                <span>Comida {{ hotel.tipoHotel }}</span>
+              </div>
+              <span class="font-bold text-900">
+                {{ hotel.hotelDireccion }}
+              </span>
+            </div>
+          </div>
+        </ng-template>
+      </p-orderList>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
+
+<ng-template #template>
+  <div class="alert mt-2 alert-warning text-center">
+    <div>
+      <i class="fa-solid fa-triangle-exclamation"></i>
+    </div>
+    No hay hoteles que mostrar
+  </div>
+</ng-template>
+</div>

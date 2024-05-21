@@ -1,0 +1,7 @@
+<div class="container mb-5">
+  <shared-search-box id="city" (emit)="getDestinosPorCiudad($event,'')" [terminos]="ciudadesNames" [placeholder]="placeHolderPadre"></shared-search-box>
+</div>
+
+<div class="container border bg-white rounded rounded-3 contain-parent mb-4">
+  <shared-pestania [term]="getTerm" [destinosEncontrados]="destinosObj"></shared-pestania>
+</div>

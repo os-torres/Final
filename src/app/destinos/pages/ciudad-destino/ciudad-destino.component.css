@@ -1,0 +1,70 @@
+
+/* Ajusta las tarjetas para que se ajusten dentro del contenedor */
+.card {
+  display: flex;
+  flex-direction: row;
+  height: 100%; /* Asegúrate de que la tarjeta ocupe todo el espacio disponible */
+  border-radius: 15px; /* Agrega bordes redondeados */
+  overflow: hidden; /* Asegura que el contenido de la tarjeta se ajuste a los bordes redondeados */
+}
+
+.card-img-left {
+  flex: 0 0 200px;
+  object-fit: cover;
+  height: 100%; /* La imagen ocupará todo el espacio vertical disponible */
+}
+
+.card-body {
+  flex: 1;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-title {
+  color: #343332;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.text-muted {
+  color: #607d8b;
+}
+
+.btn {
+  background-color: #009688; /* Color de fondo del botón */
+  color: white; /* Color del texto del botón */
+  border: none;
+}
+
+.btn:hover {
+  background-color: #00796b; /* Color de fondo del botón al pasar el mouse */
+}
+
+.text-primary {
+  color: #007bff; /* Color del enlace */
+}
+
+.btonFinal {
+  background-color: #3f51b5;
+  color: white;
+  border: none;
+}
+
+.btonFinal:hover {
+  background-color: #192049;
+  color: white;
+}
+
+i{
+  margin-right: 10px;
+}
+
+.colorsito{
+  border-radius: 10px;
+  background-color: #c3edf5;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+

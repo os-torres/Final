@@ -1,0 +1,32 @@
+<div class="row contain container m-auto" *ngIf="destino">
+  <div class="rounded">
+    <div class="card mb-2 shadow rounded border">
+      <div class="row no-gutters">
+        <div class="col-12 col-md-6">
+          <img *ngIf="destino.imagenDestino" loading="lazy" [src]='destino.imagenDestino' class="card-img-left p-1 img-fluid" [alt]="destino.nameDestino">
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="card-body">
+            <h5 class="card-title mb-1">{{destino.nameDestino}}</h5>
+              <p-button label="Primary"[label]="destino.nameCity" (click)="showDialog()" [text]="true" [raised]="true" class="mb-2 mt-2"/>
+              <p-dialog
+                  [header]="destino.nameCity"
+                  [modal]="true"
+                  [(visible)]="visible"
+                  [maximizable]="false">
+                  <destinos-ciudad-modal [destinoId]="destino.idCity"></destinos-ciudad-modal>
+              </p-dialog>
+            <div class="colorsito">
+              <p class="mb-1" *ngIf="destino.alturaLocation"><strong>Altura: </strong>{{destino.alturaLocation}} m</p>
+              <p><strong>Ubicación: </strong><a mat-button color="primary" [href]="['https://google.com/maps?q='+destino.location]" target="_blank">{{destino.location}}</a></p>
+              <p class="mb-1" *ngIf="destino.visitantes"><strong>Visitantes:</strong> {{destino.visitantes|number}}</p>
+            </div>
+            <destinos-restaurant class="mb-3" [idDestino]="destino.idDestino"></destinos-restaurant>
+            <destinos-hotel class="mb-3" [idDestino]="destino.idDestino"></destinos-hotel>
+            <destinos-eventos class="mb-3" [idDestino]="destino.idDestino"></destinos-eventos>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

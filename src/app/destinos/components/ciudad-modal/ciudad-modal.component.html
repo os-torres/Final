@@ -1,0 +1,42 @@
+<div class="city-card">
+  <img loading="lazy" *ngIf="city?.imagen; else otra" [src]="city?.imagen" alt="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/New_york_times_square-terabass.jpg/1200px-New_york_times_square-terabass.jpg" alt="Imagen de la Ciudad" class="city-image">
+  <p class="postal-code mt-4 mb-4"><b>Código Postal: </b>{{city?.postalCode}}</p>
+  <span>✈️ Aeropuertos</span>
+  <div class="airports mb-4 mt-2" *ngIf="aeropuertos?._bindings;else none">
+    <div class="hijo" *ngFor="let airport of aeropuertos?._bindings">
+      <strong>{{airport.nameAirport}}</strong>
+      <br>
+      <span class="mt-2"><b>Código IATA: </b>{{airport.iataCode}}</span>
+      <br>
+      <span class="mt-2"><b>Código ICAO: </b>{{airport.icaoCode}}</span>
+      <br>
+      <span class="mt-2"><b>Dirección: </b>{{airport.dirAirport}}</span>
+    </div>
+
+  </div>
+  <span class="">🚉 Terminales de Transporte</span>
+  <div class="airports terminal mt-2" *ngIf="aeropuertos?._bindings;else none2">
+    <div class="hijo2" *ngFor="let terminalInd of terminal?._bindings">
+      <strong>{{terminalInd.nameTerminal}}</strong>
+      <br>
+      <span class="mt-2"><b>Dirección: </b>{{terminalInd.dirTerminal}}</span>
+    </div>
+
+</div>
+<ng-template #otra>
+  <img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/New_york_times_square-terabass.jpg/1200px-New_york_times_square-terabass.jpg" alt="Imagen de la Ciudad" class="city-image">
+</ng-template>
+
+<ng-template #none>
+  <div class="alert mt-2 alert-warning text-center">
+
+    No hay aeropuertos que mostrar
+  </div>
+</ng-template>
+</div>
+
+<ng-template #none2>
+  <div class="alert mt-2 alert-warning text-center">
+    No hay terminales que mostrar
+  </div>
+</ng-template>

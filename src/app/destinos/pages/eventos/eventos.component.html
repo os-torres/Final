@@ -1,0 +1,44 @@
+<div [ngClass]="{'border border-danger':!evento || evento.length===0}">
+  <mat-accordion>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                        (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title class="text-center">
+          <i class="fa-solid fa-calendar-days"></i>
+          Eventos
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="card xl:flex mt-2 xl:justify-content-center" *ngIf="evento && evento.length>0 else template">
+        <p-orderList
+          [listStyle]="{ 'max-height': '10rem' }"
+          [value]="evento"
+          header="Eventos cerca"
+          filterBy="nameEvento"
+          filterPlaceholder="Filtrar por nombre">
+          <ng-template let-even pTemplate="item">
+            <div class="d-flex justify-content-between p-2 align-items-center gap-3 w-100">
+              <div>
+              <img width="100px"
+                [src]="even.posterEvento"
+                alt="https://img.freepik.com/vector-gratis/cartel-evento-musical-2021-foto_52683-41573.jpg"
+                class="w-4rem flex-shrink-0 shadow bg-white rounded" />
+              </div>
+              <div class="flex-1 flex flex-column gap-2">
+                <b><span class="font-bold">{{ even.nameEvento }}</span></b>
+              </div>
+            </div>
+          </ng-template>
+        </p-orderList>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <ng-template #template>
+    <div class="alert mt-2 alert-warning text-center">
+      <div>
+        <i class="fa-solid fa-triangle-exclamation"></i>
+      </div>
+      No hay eventos disponibles
+    </div>
+  </ng-template>
+</div>

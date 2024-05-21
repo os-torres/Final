@@ -1,0 +1,51 @@
+<div [ngClass]="{'border border-danger':!rest || rest.length===0}">
+<mat-accordion class="">
+  <mat-expansion-panel (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title class="text-center">
+        <i class="fa-solid fa-utensils"></i>
+        Restaurantes
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class="card xl:flex xl:justify-content-center" *ngIf="rest && rest.length>0 else template">
+      <p-orderList
+        [value]="rest"
+        [listStyle]="{ 'max-height': '10rem' }"
+        header="Restaurantes cerca"
+        filterBy="nameRestaurant"
+        filterPlaceholder="Filtrar por nombre">
+        <ng-template let-restaurante pTemplate="item">
+          <div class="d-flex justify-content-arround p-2 align-items-center gap-3 w-100 dividir">
+            <div class="redondear">
+            <img width="100px"
+              [src]="restaurante.imagen"
+              [alt]="restaurante.nameRestaurant"
+              class="w-4rem flex-shrink-0 shadow bg-white rounded" />
+            </div>
+            <div class="flex-1 flex flex-column gap-2">
+              <b><span class="font-bold">{{ restaurante.nameRestaurant }}</span></b>
+              <div class="flex align-items-center gap-2">
+                <i class="pi pi-tag text-sm"></i>
+                <span>Comida {{ restaurante.typeFood }}</span>
+              </div>
+              <span class="font-bold text-900">
+                {{ restaurante.direccionRest }}
+              </span>
+            </div>
+          </div>
+        </ng-template>
+      </p-orderList>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
+
+<ng-template #template>
+  <div class="alert mt-2 alert-warning text-center">
+    <div>
+      <i class="fa-solid fa-triangle-exclamation"></i>
+    </div>
+    No hay restaurantes que mostrar
+  </div>
+</ng-template>
+</div>
